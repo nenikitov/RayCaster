@@ -14,8 +14,8 @@ class Controller
 		// Controls
 		sf::Keyboard::Key controls[6] =
 		{
-			sf::Keyboard::W, sf::Keyboard::S, sf::Keyboard::A, sf::Keyboard::D,
-			sf::Keyboard::Left, sf::Keyboard::Right
+			sf::Keyboard::W, sf::Keyboard::S, sf::Keyboard::D, sf::Keyboard::A,
+			sf::Keyboard::Right, sf::Keyboard::Left
 		};
 		bool controlKeysPressed[6] = { false, false, false, false, false, false };
 		void updateControls();

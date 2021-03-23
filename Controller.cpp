@@ -23,4 +23,7 @@ void Controller::keyEvent(sf::Keyboard::Key key, bool pressed)
 
 void Controller::updateControls()
 {
+    this->movementDirection.x = this->controlKeysPressed[2] - this->controlKeysPressed[3];
+    this->movementDirection.y = this->controlKeysPressed[0] - this->controlKeysPressed[1];
+    this->lookDir = this->controlKeysPressed[5] - this->controlKeysPressed[4];
 }
