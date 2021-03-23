@@ -153,6 +153,9 @@
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Level.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Levels\LevelTest.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
