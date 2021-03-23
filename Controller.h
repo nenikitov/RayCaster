@@ -4,6 +4,9 @@
 class Controller
 {
 	public:
+		// Constructor
+		Controller();
+		// Getters
 		sf::Vector2i getMovementDirection();
 		int getLookDir();
 	private:
@@ -12,12 +15,8 @@ class Controller
 		int lookDir;
 		void keyEvent(sf::Keyboard::Key key, bool pressed);
 		// Controls
-		sf::Keyboard::Key controls[6] =
-		{
-			sf::Keyboard::W, sf::Keyboard::S, sf::Keyboard::D, sf::Keyboard::A,
-			sf::Keyboard::Right, sf::Keyboard::Left
-		};
-		bool controlKeysPressed[6] = { false, false, false, false, false, false };
+		sf::Keyboard::Key controls[6];
+		bool controlKeysPressed[6];
 		void updateControls();
 };
 
