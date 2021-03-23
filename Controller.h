@@ -11,7 +11,6 @@ class Controller
 		// Player input output
 		sf::Vector2i movementDirection = sf::Vector2i(0, 0);
 		int lookDir = 0;
-		void keyEvent(sf::Keyboard::Key key, bool pressed);
 		// Controls
 		sf::Keyboard::Key controls[6] = 
 		{
@@ -19,6 +18,8 @@ class Controller
 			sf::Keyboard::Right, sf::Keyboard::Left // Looking - Left and Right Arrows
 		};
 		bool controlKeysPressed[6] = {false, false, false, false, false, false};
+		// Update methods
+		void keyEvent(sf::Keyboard::Key key, bool pressed);
 		void updateControls();
 };
 

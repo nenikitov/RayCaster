@@ -1,5 +1,5 @@
-
 #include "Controller.h"
+// Getters
 
 sf::Vector2i Controller::getMovementDirection()
 {
@@ -11,6 +11,7 @@ int Controller::getLookDir()
     return this->lookDir;
 }
 
+// Update methods
 void Controller::keyEvent(sf::Keyboard::Key key, bool pressed)
 {
     // For each controls key
