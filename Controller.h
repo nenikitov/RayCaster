@@ -28,11 +28,10 @@ class Controller
 		// Controls
 		sf::Keyboard::Key controls[6] = 
 		{
-			sf::Keyboard::W, sf::Keyboard::S, sf::Keyboard::D, sf::Keyboard::A, // Movement WASD
+			sf::Keyboard::W, sf::Keyboard::S, sf::Keyboard::D, sf::Keyboard::A, // Movement - WASD
 			sf::Keyboard::Right, sf::Keyboard::Left // Looking - Left and Right Arrows
 		};
 		bool controlKeysPressed[6] = {false, false, false, false, false, false};
 		// Update methods
 		void updateControls();
 };
-
