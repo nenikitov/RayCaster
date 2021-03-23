@@ -10,7 +10,7 @@ class Controller
 		// Player input output
 		sf::Vector2i movementDirection;
 		int lookDir;
-		void keyEvent(sf::Keyboard::Key, bool pressed);
+		void keyEvent(sf::Keyboard::Key key, bool pressed);
 		// Controls
 		sf::Keyboard::Key controls[6] =
 		{
