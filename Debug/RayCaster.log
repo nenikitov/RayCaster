@@ -1,2 +1,5 @@
-﻿  RayCaster.cpp
+﻿  Controller.cpp
+  Level.cpp
+  RayCaster.cpp
+  Generating Code...
   RayCaster.vcxproj -> D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe

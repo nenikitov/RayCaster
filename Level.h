@@ -1,8 +1,10 @@
+#include <iostream>
+
 #pragma once
 class Level
 {
 	public:
-		Level(int dimenstionX, int dimensionY, double tileSize);
+		Level(std::string path);
 	private:
 
 };
