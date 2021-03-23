@@ -1,0 +1,2 @@
+D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe
+D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.pdb
