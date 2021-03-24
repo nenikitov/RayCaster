@@ -128,7 +128,10 @@ Level::Level(std::string path)
 
 unsigned int Level::tileAt(unsigned int x, unsigned int y)
 {
-	return this->tileData[x][y];
+	if (x < 0 || x >= dimensionX || y < 0 || y >= dimensionY)
+		return 0;
+	else
+		return this->tileData[x][y];
 }
 
 unsigned int Level::getTileSize()
