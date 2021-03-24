@@ -93,7 +93,7 @@ Level::Level(std::string path)
 
 							value = std::stoi(word);
 							// Check the value
-							if (value > 0)
+							if (value >= 0)
 								this->tileData[levelY].push_back(value);
 							else
 								throw std::runtime_error("Tile data is not valid");
