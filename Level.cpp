@@ -136,12 +136,12 @@ unsigned int Level::getTileSize()
 	return this->tileSize;
 }
 
-unsigned int Level::getDimenstionX()
+unsigned int Level::getWidth()
 {
 	return this->dimensionX;
 }
 
-unsigned int Level::getDimenstionY()
+unsigned int Level::getHeight()
 {
 	return this->dimensionY;
 }
