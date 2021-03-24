@@ -15,14 +15,16 @@ Level::Level(std::string path)
 	{
 		if (currentChar == ' ' || currentChar == '\n')
 		{
+			// Ignores "words" in between spaces, so the level data can be formated better
 			if (word.length() != 0)
 			{
 				int value;
 				switch (wordCount)
 				{
-					// Dimension X declaration
+					#pragma region Dimension X declaration
 					case 0:
 						value = std::stoi(word);
+						// Check the value
 						if (value > 0)
 						{
 							std::cout << "Dimensions X initialized to " << value << std::endl;
@@ -32,9 +34,11 @@ Level::Level(std::string path)
 							throw std::runtime_error("Dimension X is not valid");
 
 						break;
-					// Dimension Y declaration
+					#pragma endregion
+					#pragma region Dimension Y declaration
 					case 1:
 						value = std::stoi(word);
+						// Check the value
 						if (value > 0)
 						{
 							std::cout << "Dimensions Y initialized to " << value << std::endl;
@@ -44,9 +48,11 @@ Level::Level(std::string path)
 							throw std::runtime_error("Dimension Y is not valid");
 
 						break;
-					// Tile size declaration
+					#pragma endregion
+					#pragma region  Tile size declaration
 					case 2:
 						value = std::stoi(word);
+						// Check the value
 						if (value > 0)
 						{
 							std::cout << "Tile size initialized to " << value << std::endl;
@@ -56,43 +62,59 @@ Level::Level(std::string path)
 							throw std::runtime_error("Tile size is not valid");
 
 						break;
-
-					// Level field declaration
+					#pragma endregion
+					#pragma region Level field declaration
 					default:
-						if (word == "-") // "Line break" for the level data for auto completition
+						if (word == "-") 
 						{
-							if (levelX < this->dimensionX) // Autocomplete level row
+							// "Line break" for the level data for auto completition
+
+							// Autocomplete level row if it is incomplete
+							if (levelX < this->dimensionX)
 							{
 								for ( ; levelX < this->dimensionX; levelX++)
 									this->tileData[levelY].push_back(0);
 							}
-							else if (levelX > this->dimensionX) // Invalid data
+							// Check for invalid data
+							else if (levelX > this->dimensionX)
 								throw std::runtime_error("Width of the level is not valid");
 							
+							// Add a new line in the level tile data, go to it
 							this->tileData.push_back({});
 							levelY++;
 							levelX = 0;
+							// Check for invalid data
 							if (levelY >= this->dimensionY)
 								throw std::runtime_error("Height of the level is not valid");
 						}
 						else
 						{
-							value = std::stoi(word);
+							// Add tile data to the vector
 
-							this->tileData[levelY].push_back(value);
+							value = std::stoi(word);
+							// Check the value
+							if (value > 0)
+								this->tileData[levelY].push_back(value);
+							else
+								throw std::runtime_error("Tile data is not valid");
+
+							// Go to next tile
 							levelX++;
 							break;
 						}
 				}
-
+				#pragma endregion
+				// End of the word, clear it
 				word = "";
 				wordCount++;
 			}
 		}
+		// Still in a word, add the character to it
 		else
 			word += currentChar;
 	}
 
+	// Autocomplete level colums if level is incomplete
 	levelY++;
 	if (levelY < this->dimensionY)
 	{
@@ -101,12 +123,5 @@ Level::Level(std::string path)
 			for (unsigned int i = 0; i < this->dimensionX; i++)
 				this->tileData[levelY].push_back(0);
 		}
-	}
-
-	for (unsigned int i = 0; i < this->tileData.size(); ++i)
-	{
-		for (unsigned int j = 0; j < this->tileData[i].size(); ++j)
-			std::cout << this->tileData[i][j];
-		std::cout << std::endl;
 	}
 }
