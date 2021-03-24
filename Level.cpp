@@ -125,3 +125,23 @@ Level::Level(std::string path)
 		}
 	}
 }
+
+unsigned int Level::tileAt(unsigned int x, unsigned int y)
+{
+	return this->tileData[x][y];
+}
+
+unsigned int Level::getTileSize()
+{
+	return this->tileSize;
+}
+
+unsigned int Level::getDimenstionX()
+{
+	return this->dimensionX;
+}
+
+unsigned int Level::getDimenstionY()
+{
+	return this->dimensionY;
+}
