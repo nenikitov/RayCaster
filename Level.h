@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 #pragma once
 class Level
@@ -9,4 +10,5 @@ class Level
 		unsigned int dimensionX = 0;
 		unsigned int dimensionY = 0;
 		unsigned int tileSize = 0;
+		std::vector<std::vector<unsigned  int>> tileData = { {} };
 };
