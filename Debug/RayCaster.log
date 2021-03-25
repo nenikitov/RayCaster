@@ -1,8 +1,4 @@
-﻿  Level.cpp
-D:\Projects\VisualStudio\RayCaster\Level.cpp(73,19): warning C4018: '<': signed/unsigned mismatch
-D:\Projects\VisualStudio\RayCaster\Level.cpp(75,24): warning C4018: '<': signed/unsigned mismatch
-D:\Projects\VisualStudio\RayCaster\Level.cpp(79,24): warning C4018: '>': signed/unsigned mismatch
-D:\Projects\VisualStudio\RayCaster\Level.cpp(87,19): warning C4018: '>=': signed/unsigned mismatch
-D:\Projects\VisualStudio\RayCaster\Level.cpp(119,13): warning C4018: '<': signed/unsigned mismatch
-D:\Projects\VisualStudio\RayCaster\Level.cpp(121,17): warning C4018: '<': signed/unsigned mismatch
+﻿  Player.cpp
+  RayCaster.cpp
+  Generating Code...
   RayCaster.vcxproj -> D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe

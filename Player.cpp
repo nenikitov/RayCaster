@@ -15,7 +15,7 @@ sf::CircleShape Player::getCircleShape()
 {
 	return this->circle;
 }
-sf::RectangleShape Player::getRectangle()
+sf::RectangleShape Player::getRectangleShape()
 {
 	return this->line;
 }
