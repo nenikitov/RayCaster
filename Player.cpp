@@ -4,10 +4,6 @@
 // Constructor
 Player::Player(Controller& controller, Level& level) : controller(controller), level(level)
 {
-	// Check if this can be removed
-	this->controller = controller;
-	this->level = level;
-
 	this->circle.setFillColor(this->COLOR);
 	this->line.setFillColor(this->COLOR);
 	this->line.setOrigin(0, this->line.getSize().y / 2);

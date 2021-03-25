@@ -146,13 +146,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LineTracer.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RayCaster.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="Intersection.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="LineTracer.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,12 @@
 #pragma once
 #include "Player.h"
+#include "Intersection.h"
 
 class LineTracer
 {
 	public:
-		LineTracer(Level& level, Player& player);
-		
+		LineTracer(Level& level);
+		Intersection findIntersection(double startX, double startY, double rotation);
+	private:
+		Level& level;
 };
