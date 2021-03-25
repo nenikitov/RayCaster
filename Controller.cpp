@@ -1,11 +1,10 @@
 #include "Controller.h"
-// Getters
 
+// Getters
 sf::Vector2i Controller::getMovementDirection()
 {
     return this->movementDirection;
 }
-
 int Controller::getLookDir()
 {
     return this->lookDir;
@@ -23,7 +22,6 @@ void Controller::keyEvent(sf::Keyboard::Key key, bool pressed)
         }
     }
 }
-
 void Controller::updateControls()
 {
     this->movementDirection.x = this->controlKeysPressed[2] - this->controlKeysPressed[3];

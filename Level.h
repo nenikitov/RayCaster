@@ -1,7 +1,7 @@
+#pragma once
 #include <iostream>
 #include <vector>
 
-#pragma once
 class Level
 {
 	public:

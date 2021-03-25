@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 
+// Constructor
 Level::Level(std::string path)
 {
 	char currentChar;
@@ -125,7 +126,7 @@ Level::Level(std::string path)
 		}
 	}
 }
-
+// Getters
 unsigned int Level::tileAt(unsigned int x, unsigned int y)
 {
 	if (x < 0 || x >= dimensionX || y < 0 || y >= dimensionY)
@@ -133,17 +134,14 @@ unsigned int Level::tileAt(unsigned int x, unsigned int y)
 	else
 		return this->tileData[x][y];
 }
-
 unsigned int Level::getTileSize()
 {
 	return this->tileSize;
 }
-
 unsigned int Level::getWidth()
 {
 	return this->dimensionX;
 }
-
 unsigned int Level::getHeight()
 {
 	return this->dimensionY;
