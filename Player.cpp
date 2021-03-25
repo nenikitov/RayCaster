@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <corecrt_math_defines.h>
 
 // Constructor
 Player::Player(Controller& controller, Level& level) : controller(controller), level(level)
@@ -35,10 +36,20 @@ double Player::getAngle()
 // Update methods
 void Player::updatePlayerLocation(float deltaTime)
 {
+	// Some values that will be necessary for calculating movement
+	const double cs = cos(this->angle * M_PI / 180);
+	const double sn = sin(this->angle * M_PI / 180);
+	const double movSpeed = double(deltaTime) * this->MOV_SPEED;
+	const double rotSpeed = double(deltaTime) * this->ROT_SPEED;
+	const int fwd = this->controller.getMovementDirection().y;
+	const int rwd = -this->controller.getMovementDirection().x;
+	const int rot = this->controller.getLookDir();
+
 	// Update internal location and rotation
-	this->positionX += this->controller.getMovementDirection().x * double(deltaTime) * this->MOV_SPEED;
-	this->positionY -= this->controller.getMovementDirection().y * double(deltaTime) * this->MOV_SPEED;
-	this->angle -= this->controller.getLookDir() * double(deltaTime) * this->ROT_SPEED;
+	this->angle -= rot * rotSpeed;
+	this->positionX += movSpeed * (cs * fwd + sn * rwd);
+	this->positionY += movSpeed * (sn * fwd - cs * rwd);
+	
 
 	// Update shapes location and rotations
 	this->circle.setPosition(this->positionX, this->positionY);
