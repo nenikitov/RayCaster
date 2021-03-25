@@ -30,28 +30,31 @@ class Player
 		/// Gets the position of the player along X axis.
 		/// </summary>
 		/// <returns>X position.</returns>
-		int getPositionX();
+		double getPositionX();
 		/// <summary>
 		/// Gets the position of the player along Y axis.
 		/// </summary>
 		/// <returns>Y position.</returns>
-		int getPositionY();
+		double getPositionY();
 		/// <summary>
 		/// Gets the rotation of the player (in degrees).
 		/// </summary>
 		/// <returns>Rotation.</returns>
 		double getAngle();
+		// Update methods
 		/// <summary>
-		/// Updates the player from the controls
+		/// Updates the player from the controls.
 		/// </summary>
-		void updatePlayerLocation();
+		/// <param name="deltaTime">The time between frames (in seconds) so the physics are untied from the framerate.</param>
+		void updatePlayerLocation(float deltaTime);
 	private:
 		Controller& controller;
 		Level& level;
 		sf::CircleShape circle = sf::CircleShape(10.f);
 		sf::RectangleShape line = sf::RectangleShape(sf::Vector2f(20.f, 2.f));
 		const sf::Color COLOR = sf::Color::Cyan;
-		int positionX = 0;
-		int positionY = 0;
+		const double SPEED = 50;
+		double positionX = 0;
+		double positionY = 0;
 		double angle = 0;
 };

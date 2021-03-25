@@ -19,15 +19,23 @@ sf::RectangleShape Player::getRectangleShape()
 {
 	return this->line;
 }
-int Player::getPositionX()
+double Player::getPositionX()
 {
 	return this->positionX;
 }
-int Player::getPositionY()
+double Player::getPositionY()
 {
 	return this->positionY;
 }
 double Player::getAngle()
 {
 	return this->angle;
+}
+// Update methods
+void Player::updatePlayerLocation(float deltaTime)
+{
+	this->positionX += this->controller.getMovementDirection().x * double(deltaTime) * this->SPEED;
+	this->positionY -= this->controller.getMovementDirection().y * double(deltaTime) * this->SPEED;
+
+	this->circle.setPosition(this->positionX, this->positionY);
 }
