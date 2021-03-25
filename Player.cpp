@@ -9,6 +9,7 @@ Player::Player(Controller& controller, Level& level) : controller(controller), l
 
 	this->circle.setFillColor(this->COLOR);
 	this->line.setFillColor(this->COLOR);
+	this->line.setOrigin(0, this->line.getSize().y / 2);
 }
 // Getters
 sf::CircleShape Player::getCircleShape()
@@ -34,8 +35,13 @@ double Player::getAngle()
 // Update methods
 void Player::updatePlayerLocation(float deltaTime)
 {
-	this->positionX += this->controller.getMovementDirection().x * double(deltaTime) * this->SPEED;
-	this->positionY -= this->controller.getMovementDirection().y * double(deltaTime) * this->SPEED;
+	// Update internal location and rotation
+	this->positionX += this->controller.getMovementDirection().x * double(deltaTime) * this->MOV_SPEED;
+	this->positionY -= this->controller.getMovementDirection().y * double(deltaTime) * this->MOV_SPEED;
+	this->angle -= this->controller.getLookDir() * double(deltaTime) * this->ROT_SPEED;
 
+	// Update shapes location and rotations
 	this->circle.setPosition(this->positionX, this->positionY);
+	this->line.setPosition(this->positionX + this->circle.getRadius(), this->positionY + this->circle.getRadius());
+	this->line.setRotation(this->angle);
 }
