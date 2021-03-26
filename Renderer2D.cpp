@@ -2,11 +2,11 @@
 
 Renderer2D::Renderer2D(sf::RenderWindow& window, Level& level) : window(window)
 {
-	const unsigned tileSize = this->TARGET_WINDOW_SIZE / level.getHeight();
-	const unsigned int newW = tileSize * level.getWidth();
-	const unsigned int newH = tileSize * level.getHeight();
-	window.setSize(sf::Vector2u(newW, newH));
-	sf::FloatRect visibleArea(0, 0, newW, newH);
+	const unsigned int TILE_SIZE = this->TARGET_WINDOW_SIZE / level.getHeight();
+	const unsigned int NEW_W = TILE_SIZE * level.getWidth();
+	const unsigned int NEW_H = TILE_SIZE * level.getHeight();
+	window.setSize(sf::Vector2u(NEW_W, NEW_H));
+	sf::FloatRect visibleArea(0, 0, level.getWidth(), level.getHeight());
 	window.setView(sf::View(visibleArea));
 
 	
@@ -19,8 +19,8 @@ Renderer2D::Renderer2D(sf::RenderWindow& window, Level& level) : window(window)
 
 			if (tile)
 			{
-				sf::RectangleShape newRect = sf::RectangleShape(sf::Vector2f(tileSize, tileSize));
-				newRect.setPosition(x * tileSize, y * tileSize);
+				sf::RectangleShape newRect = sf::RectangleShape(sf::Vector2f(1.f, 1.f));
+				newRect.setPosition(x, y);
 				newRect.setFillColor(sf::Color(tile * 50, tile * 50, tile * 50));
 				this->levelTiles[y].push_back(newRect);
 			}

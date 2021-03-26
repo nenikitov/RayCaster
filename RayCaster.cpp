@@ -4,6 +4,7 @@
 #include "Level.h"
 #include "Player.h"
 #include "Renderer2D.h"
+#include "LineTracer.h"
 
 int main()
 {
@@ -16,6 +17,7 @@ int main()
     Player player = Player(playerController, level);
 
     Renderer2D renderer2d = Renderer2D(window2d, level);
+    LineTracer lineTracer = LineTracer(level);
 
     while (window2d.isOpen())
     {
@@ -52,10 +54,20 @@ int main()
         float deltaTime = deltaClock.restart().asSeconds();
         player.updatePlayerLocation(deltaTime);
         
+        Intersection intersection = lineTracer.findIntersection(player.getPositionX(), player.getPositionY(), player.getAngle());
+        //std::cout << intersection.getX() << " " << intersection.getY() << std::endl;
+        sf::CircleShape interCircle(0.1f);
+        interCircle.setFillColor(sf::Color::Red);
+        interCircle.setOrigin(interCircle.getRadius(), interCircle.getRadius());
+        interCircle.setPosition(intersection.getX(), intersection.getY());
+
         // Update window 2d
         renderer2d.render();
         window2d.draw(player.getCircleShape());
         window2d.draw(player.getRectangleShape());
+        window2d.draw(interCircle);
+
+
         window2d.display();
     }
 
