@@ -5,6 +5,7 @@
 Player::Player(Controller& controller, Level& level) : controller(controller), level(level)
 {
 	this->circle.setFillColor(this->COLOR);
+	this->circle.setOrigin(this->circle.getRadius(), this->circle.getRadius());
 	this->line.setFillColor(this->COLOR);
 	this->line.setOrigin(0, this->line.getSize().y / 2);
 }
@@ -49,6 +50,6 @@ void Player::updatePlayerLocation(float deltaTime)
 
 	// Update shapes location and rotations
 	this->circle.setPosition(this->positionX, this->positionY);
-	this->line.setPosition(this->positionX + this->circle.getRadius(), this->positionY + this->circle.getRadius());
+	this->line.setPosition(this->positionX, this->positionY);
 	this->line.setRotation(this->angle);
 }

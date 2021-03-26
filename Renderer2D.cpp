@@ -21,6 +21,7 @@ Renderer2D::Renderer2D(sf::RenderWindow& window, Level& level) : window(window)
 			{
 				sf::RectangleShape newRect = sf::RectangleShape(sf::Vector2f(tileSize, tileSize));
 				newRect.setPosition(x * tileSize, y * tileSize);
+				newRect.setFillColor(sf::Color(tile * 50, tile * 50, tile * 50));
 				this->levelTiles[y].push_back(newRect);
 			}
 			else
