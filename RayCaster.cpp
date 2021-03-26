@@ -54,20 +54,20 @@ int main()
         float deltaTime = deltaClock.restart().asSeconds();
         player.updatePlayerLocation(deltaTime);
         
-
+        std::cout << 1 / deltaTime << std::endl;
         
-
         // Update window 2d
         renderer2d.render();
         window2d.draw(player.getCircleShape());
         window2d.draw(player.getRectangleShape());
        
-        for (int i = -25; i < 25; i++)
+        sf::CircleShape interCircle(0.1f);
+        interCircle.setFillColor(sf::Color::Red);
+        interCircle.setOrigin(interCircle.getRadius(), interCircle.getRadius());
+
+        for (int i = -50; i < 50; i++)
         {
             Intersection intersection = lineTracer.findIntersection(player.getPositionX(), player.getPositionY(), player.getAngle() - i);
-            sf::CircleShape interCircle(0.1f);
-            interCircle.setFillColor(sf::Color::Red);
-            interCircle.setOrigin(interCircle.getRadius(), interCircle.getRadius());
             interCircle.setPosition(intersection.getX(), intersection.getY());
             window2d.draw(interCircle);
         }

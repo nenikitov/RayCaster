@@ -1,16 +1,6 @@
 ﻿  Intersection.cpp
-  LineTracer.cpp
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(29,52): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(29,37): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(47,52): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(47,37): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(70,52): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(70,37): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(88,52): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(88,37): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
   RayCaster.cpp
 D:\Projects\VisualStudio\RayCaster\RayCaster.cpp(71,75): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Projects\VisualStudio\RayCaster\RayCaster.cpp(71,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  WallDirection.cpp
   Generating Code...
   RayCaster.vcxproj -> D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe

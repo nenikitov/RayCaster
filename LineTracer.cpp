@@ -11,6 +11,7 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 	const double tn = tan(-rotation * M_PI / 180);
 	const double offsetX = fmod(startX, 1);
 	const double offsetY = fmod(startY, 1);
+	
 
 	// Test vertical walls
 	Intersection verticalIntersection = Intersection(0, 0, 0, WallDirection::UP, false);
