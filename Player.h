@@ -53,7 +53,7 @@ class Player
 		sf::CircleShape circle = sf::CircleShape(0.25f);
 		sf::RectangleShape line = sf::RectangleShape(sf::Vector2f(0.5f, 0.05f));
 		const sf::Color COLOR = sf::Color::Cyan;
-		const unsigned char MOV_SPEED = 3;
+		const unsigned char MOV_SPEED = 2;
 		const unsigned char ROT_SPEED = 180;
 		double positionX = 0;
 		double positionY = 0;

@@ -54,7 +54,7 @@ int main()
         float deltaTime = deltaClock.restart().asSeconds();
         player.updatePlayerLocation(deltaTime);
         
-        Intersection intersection = lineTracer.findIntersection(player.getPositionX(), player.getPositionY(), player.getAngle());
+        Intersection intersection = lineTracer.findIntersection(player.getPositionX(), player.getPositionY(), 90);
         //std::cout << intersection.getX() << " " << intersection.getY() << std::endl;
         sf::CircleShape interCircle(0.1f);
         interCircle.setFillColor(sf::Color::Red);

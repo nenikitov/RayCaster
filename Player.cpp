@@ -36,7 +36,7 @@ void Player::updatePlayerLocation(float deltaTime)
 	// Some values that will be necessary for calculating movement
 	const double cs = cos(this->angle * M_PI / 180);
 	const double sn = sin(this->angle * M_PI / 180);
-	const double movSpeed = double(deltaTime) * this->MOV_SPEED;
+	const double movSpeed = double(deltaTime) * this->MOV_SPEED / level.getTileSize() * 16;
 	const double rotSpeed = double(deltaTime) * this->ROT_SPEED;
 	const int fwd = this->controller.getMovementDirection().y;
 	const int rwd = -this->controller.getMovementDirection().x;

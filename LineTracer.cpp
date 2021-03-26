@@ -13,9 +13,8 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 	const double offsetY = fmod(startY, tileSize);
 
 	// Test for UP walls
-	//for (unsigned int i = 0; i < this->MAX_TESTS; i++)
-	//{
-		int i = 0;
+	for (unsigned int i = 0; i < this->MAX_TESTS; i++)
+	{
 		double intersectionX = startX + (offsetY + i * double(tileSize)) / tn;
 		double intersectionY = startY - offsetY - i * double(tileSize);
 
@@ -25,7 +24,7 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 
 		if (tile)
 			return Intersection(intersectionX, intersectionY, i, true);
-	//}
+	}
 
 	return Intersection(0, 0, 0, false);
 }

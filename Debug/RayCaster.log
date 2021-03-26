@@ -1,4 +1,7 @@
-﻿  RayCaster.cpp
-D:\Projects\VisualStudio\RayCaster\RayCaster.cpp(62,71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Projects\VisualStudio\RayCaster\RayCaster.cpp(62,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  Player.cpp
+D:\Projects\VisualStudio\RayCaster\Player.cpp(52,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Projects\VisualStudio\RayCaster\Player.cpp(52,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Projects\VisualStudio\RayCaster\Player.cpp(53,46): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Projects\VisualStudio\RayCaster\Player.cpp(53,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Projects\VisualStudio\RayCaster\Player.cpp(54,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   RayCaster.vcxproj -> D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe
