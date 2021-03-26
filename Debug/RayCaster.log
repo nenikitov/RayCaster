@@ -1,10 +1,12 @@
-﻿  Intersection.cpp
-  LineTracer.cpp
-  Player.cpp
-D:\Projects\VisualStudio\RayCaster\Player.cpp(55,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Player.cpp(55,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Player.cpp(56,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Player.cpp(56,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Player.cpp(57,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
+﻿  Renderer2D.cpp
+D:\Projects\VisualStudio\RayCaster\Renderer2D.cpp(9,40): warning C4244: 'argument': conversion from 'const unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\VisualStudio\RayCaster\Renderer2D.cpp(9,34): warning C4244: 'argument': conversion from 'const unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
   RayCaster.vcxproj -> D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe

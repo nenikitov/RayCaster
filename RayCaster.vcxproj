@@ -151,6 +151,7 @@
     <ClCompile Include="LineTracer.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RayCaster.cpp" />
+    <ClCompile Include="Renderer2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Level.h" />
     <ClInclude Include="LineTracer.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Levels\LevelTest.txt" />

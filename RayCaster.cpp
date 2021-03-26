@@ -3,6 +3,7 @@
 #include "Controller.h"
 #include "Level.h"
 #include "Player.h"
+#include "Renderer2D.h"
 
 int main()
 {
@@ -13,6 +14,8 @@ int main()
     Controller playerController;
     Level level = Level("./Levels/LevelTest.txt");
     Player player = Player(playerController, level);
+
+    Renderer2D renderer2d = Renderer2D(window2d, level);
 
     while (window2d.isOpen())
     {
