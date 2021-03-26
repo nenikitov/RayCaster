@@ -13,16 +13,59 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 	const double offsetY = fmod(startY, 1);
 
 	// Test for UP walls
+	Intersection verticalIntersection = Intersection(0, 0, 0, false);
+	bool foundVertical = false;
 	for (unsigned int i = 0; i < this->MAX_TESTS; i++)
 	{
+		if (foundVertical) break;
+
 		double intersectionX = startX + (offsetY + i) / tn;
 		double intersectionY = startY - offsetY - i - 0.001;
 
 		unsigned int tile = level.tileAt(intersectionX, intersectionY);
 
-		if (tile)
-			return Intersection(intersectionX, intersectionY, i, true);
+		if (tile) {
+			verticalIntersection = Intersection(intersectionX, intersectionY, tile, true);
+			foundVertical = true;
+		}
 	}
 
-	return Intersection(0, 0, 0, false);
+	// Test for RIGHT walls
+	Intersection horizontalIntersection = Intersection(0, 0, 0, false);
+	bool foundHorizontal = false;
+	for (unsigned int i = 0; i < this->MAX_TESTS; i++)
+	{
+		if (foundHorizontal) break;
+
+		double intersectionX = startX + i + 1 - offsetX + 0.001;
+		double intersectionY = startY - (i + 1 - offsetX) * tn;
+
+		unsigned int tile = level.tileAt(intersectionX, intersectionY);
+
+		if (tile) {
+			horizontalIntersection = Intersection(intersectionX, intersectionY, tile, true);
+			foundHorizontal = true;
+		}
+	}
+
+	if (!horizontalIntersection.getIntersects() && !verticalIntersection.getIntersects())
+		return Intersection(0, 0, 0, false);
+	else if (!horizontalIntersection.getIntersects() && verticalIntersection.getIntersects())
+		return verticalIntersection;
+	else if (horizontalIntersection.getIntersects() && !verticalIntersection.getIntersects())
+		return horizontalIntersection;
+	else {
+		double distHor =
+			abs(horizontalIntersection.getX() - startX) * abs(horizontalIntersection.getX() - startX)
+			+ abs(horizontalIntersection.getY() - startY) * abs(horizontalIntersection.getY() - startY);
+
+		double distVert =
+			abs(verticalIntersection.getX() - startX) * abs(verticalIntersection.getX() - startX)
+			+ abs(verticalIntersection.getY() - startY) * abs(verticalIntersection.getY() - startY);
+
+		if (distVert < distHor)
+			return verticalIntersection;
+		else
+			return horizontalIntersection;
+	}
 }
