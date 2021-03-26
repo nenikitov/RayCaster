@@ -12,27 +12,51 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 	const double offsetX = fmod(startX, 1);
 	const double offsetY = fmod(startY, 1);
 
-	// Test for UP walls
+	// Test vertical walls
 	Intersection verticalIntersection = Intersection(0, 0, 0, false);
 	bool foundVertical = false;
-	for (unsigned int i = 0; i < this->MAX_TESTS; i++)
+	// If facing up or down
+	if (sin(-rotation * M_PI / 180) >= 0)
 	{
-		if (foundVertical) break;
+		// Test for UP walls
+		for (unsigned int i = 0; i < this->MAX_TESTS; i++)
+		{
+			if (foundVertical) break;
 
-		double intersectionX = startX + (offsetY + i) / tn;
-		double intersectionY = startY - offsetY - i - 0.001;
+			double intersectionX = startX + (offsetY + i) / tn;
+			double intersectionY = startY - offsetY - i - 0.001;
 
-		unsigned int tile = level.tileAt(intersectionX, intersectionY);
+			unsigned int tile = level.tileAt(intersectionX, intersectionY);
 
-		if (tile) {
-			verticalIntersection = Intersection(intersectionX, intersectionY, tile, true);
-			foundVertical = true;
+			if (tile) {
+				verticalIntersection = Intersection(intersectionX, intersectionY, 0, true);
+				foundVertical = true;
+			}
+		}
+	}
+	else
+	{
+		// Test for DOWN walls
+		for (unsigned int i = 0; i < this->MAX_TESTS; i++)
+		{
+			if (foundVertical) break;
+
+			double intersectionX = startX + (i + 1 - offsetY) / -tn;
+			double intersectionY = startY + i + 1 - offsetY + 0.001;
+
+			unsigned int tile = level.tileAt(intersectionX, intersectionY);
+
+			if (tile) {
+				verticalIntersection = Intersection(intersectionX, intersectionY, 0, true);
+				foundVertical = true;
+			}
 		}
 	}
 
-	// Test for RIGHT walls
+	// Test for horizontal walls
 	Intersection horizontalIntersection = Intersection(0, 0, 0, false);
 	bool foundHorizontal = false;
+	// Test for RIGHT walls
 	for (unsigned int i = 0; i < this->MAX_TESTS; i++)
 	{
 		if (foundHorizontal) break;
@@ -43,17 +67,20 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 		unsigned int tile = level.tileAt(intersectionX, intersectionY);
 
 		if (tile) {
-			horizontalIntersection = Intersection(intersectionX, intersectionY, tile, true);
+			horizontalIntersection = Intersection(intersectionX, intersectionY, 1, true);
 			foundHorizontal = true;
 		}
 	}
 
+	// Return empty intersection if none exists
 	if (!horizontalIntersection.getIntersects() && !verticalIntersection.getIntersects())
 		return Intersection(0, 0, 0, false);
+	// Return the one that exists
 	else if (!horizontalIntersection.getIntersects() && verticalIntersection.getIntersects())
 		return verticalIntersection;
 	else if (horizontalIntersection.getIntersects() && !verticalIntersection.getIntersects())
 		return horizontalIntersection;
+	// Or return the closest one if both exists
 	else {
 		double distHor =
 			abs(horizontalIntersection.getX() - startX) * abs(horizontalIntersection.getX() - startX)

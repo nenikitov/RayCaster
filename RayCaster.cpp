@@ -62,11 +62,11 @@ int main()
         window2d.draw(player.getCircleShape());
         window2d.draw(player.getRectangleShape());
        
-        for (int i = -40; i < 40; i++)
+        for (int i = -10; i < 10; i++)
         {
             Intersection intersection = lineTracer.findIntersection(player.getPositionX(), player.getPositionY(), player.getAngle() - i);
             sf::CircleShape interCircle(0.1f);
-            interCircle.setFillColor(sf::Color::Red);
+            interCircle.setFillColor(intersection.getTile() == 0 ? sf::Color::Red : sf::Color::Green);
             interCircle.setOrigin(interCircle.getRadius(), interCircle.getRadius());
             interCircle.setPosition(intersection.getX(), intersection.getY());
             window2d.draw(interCircle);
