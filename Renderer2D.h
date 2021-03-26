@@ -7,7 +7,7 @@ class Renderer2D
 {
 	public:
 		Renderer2D(sf::RenderWindow& window, Level& level);
-		void update();
+		void render();
 	private:
 		sf::RenderWindow& window;
 		std::vector<std::vector<sf::RectangleShape>> levelTiles = { {} };

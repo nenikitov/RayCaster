@@ -53,7 +53,7 @@ int main()
         player.updatePlayerLocation(deltaTime);
         
         // Update window 2d
-        window2d.clear();
+        renderer2d.render();
         window2d.draw(player.getCircleShape());
         window2d.draw(player.getRectangleShape());
         window2d.display();

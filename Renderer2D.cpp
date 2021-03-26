@@ -12,21 +12,33 @@ Renderer2D::Renderer2D(sf::RenderWindow& window, Level& level) : window(window)
 	
 	for (unsigned int y = 0; y < level.getHeight(); y++) 
 	{
-		std::cout << "Should push into 2d array" << std::endl;
-		//this->levelTiles.push_back({});
+		this->levelTiles.push_back({});
 		for (unsigned int x = 0; x < level.getWidth(); x++) 
 		{
 			unsigned int tile = level.tileAt(x,y);
-			
-			//if (tile)
-			//{
-				//this->levelTiles[y].push_back(sf::RectangleShape(sf::Vector2f(0, 0)));
-			//}
+
+			if (tile)
+			{
+				sf::RectangleShape newRect = sf::RectangleShape(sf::Vector2f(tileSize, tileSize));
+				newRect.setPosition(x * tileSize, y * tileSize);
+				this->levelTiles[y].push_back(newRect);
+			}
+			else
+				this->levelTiles[y].push_back(sf::RectangleShape());
 		}
 	}
 	
 }
 
-void Renderer2D::update()
+void Renderer2D::render()
 {
+	window.clear();
+	for (unsigned int y = 0; y < this->levelTiles.size(); y++)
+	{
+		for (unsigned int x = 0; x < this->levelTiles.at(y).size(); x++)
+		{
+			if (this->levelTiles.at(y).at(x).getSize().x)
+				window.draw(this->levelTiles.at(y).at(x));
+		}
+	}
 }

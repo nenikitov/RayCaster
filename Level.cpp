@@ -132,7 +132,7 @@ unsigned int Level::tileAt(unsigned int x, unsigned int y)
 	if (x < 0 || x >= dimensionX || y < 0 || y >= dimensionY)
 		return 0;
 	else
-		return this->tileData[x][y];
+		return this->tileData.at(y).at(x);
 }
 unsigned int Level::getTileSize()
 {
