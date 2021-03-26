@@ -1,27 +1,11 @@
-﻿  RayCaster.cpp
-  Renderer2D.cpp
-D:\Projects\VisualStudio\RayCaster\Renderer2D.cpp(9,40): warning C4244: 'argument': conversion from 'const unsigned int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Projects\VisualStudio\RayCaster\Renderer2D.cpp(9,34): warning C4244: 'argument': conversion from 'const unsigned int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Projects\VisualStudio\RayCaster\Renderer2D.cpp(22,76): warning C4244: 'argument': conversion from 'const unsigned int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Projects\VisualStudio\RayCaster\Renderer2D.cpp(22,66): warning C4244: 'argument': conversion from 'const unsigned int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Projects\VisualStudio\RayCaster\Renderer2D.cpp(23,41): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Renderer2D.cpp(23,27): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  Generating Code...
-  LINK : D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe not found or not built by the last incremental link; performing full link
+﻿  Level.cpp
+D:\Projects\VisualStudio\RayCaster\Level.cpp(77,19): warning C4018: '<': signed/unsigned mismatch
+D:\Projects\VisualStudio\RayCaster\Level.cpp(79,24): warning C4018: '<': signed/unsigned mismatch
+D:\Projects\VisualStudio\RayCaster\Level.cpp(83,24): warning C4018: '>': signed/unsigned mismatch
+D:\Projects\VisualStudio\RayCaster\Level.cpp(92,19): warning C4018: '>=': signed/unsigned mismatch
+D:\Projects\VisualStudio\RayCaster\Level.cpp(100,19): warning C4018: '<': signed/unsigned mismatch
+D:\Projects\VisualStudio\RayCaster\Level.cpp(102,23): warning C4018: '<': signed/unsigned mismatch
+D:\Projects\VisualStudio\RayCaster\Level.cpp(106,24): warning C4018: '>': signed/unsigned mismatch
+D:\Projects\VisualStudio\RayCaster\Level.cpp(111,19): warning C4018: '<': signed/unsigned mismatch
+D:\Projects\VisualStudio\RayCaster\Level.cpp(113,23): warning C4018: '<': signed/unsigned mismatch
   RayCaster.vcxproj -> D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe

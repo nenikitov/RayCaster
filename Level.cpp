@@ -34,6 +34,7 @@ Level::Level(std::string path)
 						else
 							throw std::runtime_error("Dimension X is not valid");
 
+						wordCount++;
 						break;
 					#pragma endregion
 					#pragma region Dimension Y declaration
@@ -48,6 +49,7 @@ Level::Level(std::string path)
 						else
 							throw std::runtime_error("Dimension Y is not valid");
 
+						wordCount++;
 						break;
 					#pragma endregion
 					#pragma region  Tile size declaration
@@ -62,6 +64,7 @@ Level::Level(std::string path)
 						else
 							throw std::runtime_error("Tile size is not valid");
 
+						wordCount++;
 						break;
 					#pragma endregion
 					#pragma region Level field declaration
@@ -80,13 +83,39 @@ Level::Level(std::string path)
 							else if (levelX > this->dimensionX)
 								throw std::runtime_error("Width of the level is not valid");
 							
+							levelX = 0;
+
 							// Add a new line in the level tile data, go to it
 							this->tileData.push_back({});
 							levelY++;
-							levelX = 0;
 							// Check for invalid data
 							if (levelY >= this->dimensionY)
 								throw std::runtime_error("Height of the level is not valid");
+						}
+						else if (word == ".")
+						{
+							// "Level end" for the level data for auto completition
+
+							// Autocomplete level row if it is incomplete
+							if (levelX < this->dimensionX)
+							{
+								for (; levelX < this->dimensionX; levelX++)
+									this->tileData[levelY].push_back(0);
+							}
+							// Check for invalid data
+							else if (levelX > this->dimensionX)
+								throw std::runtime_error("Width of the level is not valid");
+
+							// Autocomplete level colums if level is incomplete
+							levelY++;
+							if (levelY < this->dimensionY)
+							{
+								for (; levelY < this->dimensionY; levelY++) {
+									this->tileData.push_back({});
+									for (unsigned int i = 0; i < this->dimensionX; i++)
+										this->tileData[levelY].push_back(0);
+								}
+							}
 						}
 						else
 						{
@@ -107,23 +136,11 @@ Level::Level(std::string path)
 				#pragma endregion
 				// End of the word, clear it
 				word = "";
-				wordCount++;
 			}
 		}
 		// Still in a word, add the character to it
 		else
 			word += currentChar;
-	}
-
-	// Autocomplete level colums if level is incomplete
-	levelY++;
-	if (levelY < this->dimensionY)
-	{
-		for (; levelY < this->dimensionY; levelY++) {
-			this->tileData.push_back({});
-			for (unsigned int i = 0; i < this->dimensionX; i++)
-				this->tileData[levelY].push_back(0);
-		}
 	}
 }
 // Getters
