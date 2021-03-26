@@ -96,15 +96,16 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 	}
 
 	// Return empty intersection if none exists
-	if (!horizontalIntersection.getIntersects() && !verticalIntersection.getIntersects())
+	if (!foundHorizontal && !foundVertical)
 		return Intersection(0, 0, 0, WallDirection::UP, false);
 	// Return the one that exists
-	else if (!horizontalIntersection.getIntersects() && verticalIntersection.getIntersects())
+	else if (!foundHorizontal && foundVertical)
 		return verticalIntersection;
-	else if (horizontalIntersection.getIntersects() && !verticalIntersection.getIntersects())
+	else if (foundHorizontal && !foundVertical)
 		return horizontalIntersection;
 	// Or return the closest one if both exists
-	else {
+	else
+	{
 		double distHor =
 			abs(horizontalIntersection.getX() - startX) * abs(horizontalIntersection.getX() - startX)
 			+ abs(horizontalIntersection.getY() - startY) * abs(horizontalIntersection.getY() - startY);
