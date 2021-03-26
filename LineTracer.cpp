@@ -13,7 +13,7 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 	const double offsetY = fmod(startY, 1);
 
 	// Test vertical walls
-	Intersection verticalIntersection = Intersection(0, 0, 0, false);
+	Intersection verticalIntersection = Intersection(0, 0, 0, WallDirection::UP, false);
 	bool foundVertical = false;
 	// If facing up or down
 	if (sin(-rotation * M_PI / 180) >= 0)
@@ -29,7 +29,7 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 			unsigned int tile = level.tileAt(intersectionX, intersectionY);
 
 			if (tile) {
-				verticalIntersection = Intersection(intersectionX, intersectionY, 0, true);
+				verticalIntersection = Intersection(intersectionX, intersectionY, tile, WallDirection::UP, true);
 				foundVertical = true;
 			}
 		}
@@ -47,14 +47,14 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 			unsigned int tile = level.tileAt(intersectionX, intersectionY);
 
 			if (tile) {
-				verticalIntersection = Intersection(intersectionX, intersectionY, 0, true);
+				verticalIntersection = Intersection(intersectionX, intersectionY, tile, WallDirection::DOWN, true);
 				foundVertical = true;
 			}
 		}
 	}
 
 	// Test for horizontal walls
-	Intersection horizontalIntersection = Intersection(0, 0, 0, false);
+	Intersection horizontalIntersection = Intersection(0, 0, 0, WallDirection::RIGHT, false);
 	bool foundHorizontal = false;
 	// If facing right or left
 	if (cos(-rotation * M_PI / 180) >= 0)
@@ -70,7 +70,7 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 			unsigned int tile = level.tileAt(intersectionX, intersectionY);
 
 			if (tile) {
-				horizontalIntersection = Intersection(intersectionX, intersectionY, 1, true);
+				horizontalIntersection = Intersection(intersectionX, intersectionY, tile, WallDirection::RIGHT, true);
 				foundHorizontal = true;
 			}
 		}
@@ -88,7 +88,7 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 			unsigned int tile = level.tileAt(intersectionX, intersectionY);
 
 			if (tile) {
-				horizontalIntersection = Intersection(intersectionX, intersectionY, 1, true);
+				horizontalIntersection = Intersection(intersectionX, intersectionY, tile, WallDirection::LEFT, true);
 				foundHorizontal = true;
 			}
 		}
@@ -96,7 +96,7 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 
 	// Return empty intersection if none exists
 	if (!horizontalIntersection.getIntersects() && !verticalIntersection.getIntersects())
-		return Intersection(0, 0, 0, false);
+		return Intersection(0, 0, 0, WallDirection::UP, false);
 	// Return the one that exists
 	else if (!horizontalIntersection.getIntersects() && verticalIntersection.getIntersects())
 		return verticalIntersection;

@@ -1,24 +1,32 @@
 #include "Intersection.h"
 
-Intersection::Intersection(double x, double y, unsigned int tile, bool intersects)
+
+Intersection::Intersection(double x, double y, unsigned int tile, WallDirection direction, bool intersects)
 {
     this->x = x;
     this->y = y;
     this->tile = tile;
+    this->direction = direction;
     this->intersects = intersects;
 }
+
 double Intersection::getX()
 {
-    return x;
+    return this->x;
 }
 double Intersection::getY()
 {
-    return y;
+    return this->y;
 }
 unsigned int Intersection::getTile()
 {
-    return tile;
+    return this->tile;
 }
 bool Intersection::getIntersects() {
-    return intersects;
+    return this->intersects;
+}
+
+WallDirection Intersection::getWallDirection()
+{
+    return this->direction;
 }

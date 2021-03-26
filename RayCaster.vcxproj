@@ -152,6 +152,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RayCaster.cpp" />
     <ClCompile Include="Renderer2D.cpp" />
+    <ClCompile Include="WallDirection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />

@@ -66,7 +66,7 @@ int main()
         {
             Intersection intersection = lineTracer.findIntersection(player.getPositionX(), player.getPositionY(), player.getAngle() - i);
             sf::CircleShape interCircle(0.1f);
-            interCircle.setFillColor(intersection.getTile() == 0 ? sf::Color::Red : sf::Color::Green);
+            interCircle.setFillColor(sf::Color::Red);
             interCircle.setOrigin(interCircle.getRadius(), interCircle.getRadius());
             interCircle.setPosition(intersection.getX(), intersection.getY());
             window2d.draw(interCircle);
