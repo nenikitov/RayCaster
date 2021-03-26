@@ -9,18 +9,16 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 {
 	const unsigned int tileSize = this->level.getTileSize();
 	const double tn = tan(-rotation * M_PI / 180);
-	const double offsetX = fmod(startX, tileSize);
-	const double offsetY = fmod(startY, tileSize);
+	const double offsetX = fmod(startX, 1);
+	const double offsetY = fmod(startY, 1);
 
 	// Test for UP walls
 	for (unsigned int i = 0; i < this->MAX_TESTS; i++)
 	{
-		double intersectionX = startX + (offsetY + i * double(tileSize)) / tn;
-		double intersectionY = startY - offsetY - i * double(tileSize);
+		double intersectionX = startX + (offsetY + i) / tn;
+		double intersectionY = startY - offsetY - i - 0.001;
 
-		unsigned int tileX = fmod(intersectionX, tileSize);
-		unsigned int tileY = fmod(intersectionY, tileSize);
-		unsigned int tile = level.tileAt(tileX, tileY);
+		unsigned int tile = level.tileAt(intersectionX, intersectionY);
 
 		if (tile)
 			return Intersection(intersectionX, intersectionY, i, true);

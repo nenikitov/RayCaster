@@ -9,5 +9,5 @@ class LineTracer
 		Intersection findIntersection(double startX, double startY, double rotation);
 	private:
 		Level& level;
-		const unsigned int MAX_TESTS = 5;
+		const unsigned int MAX_TESTS = 10;
 };
