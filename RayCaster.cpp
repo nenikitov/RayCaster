@@ -18,9 +18,7 @@ int main()
     Player player = Player(playerController, level);
 
     Renderer2D renderer2d = Renderer2D(window2d, level, player);
-    LineTracer lineTracer = LineTracer(level);
-
-    Renderer3D renderer3d = Renderer3D(1280, window3d, 110, 320, level, player);
+    Renderer3D renderer3d = Renderer3D(1280, window3d, 110, 80, level, player);
 
     while (window2d.isOpen())
     {
@@ -61,19 +59,10 @@ int main()
         
         // Update window 2d
         renderer2d.render();
-       
-        sf::CircleShape interCircle(0.1f);
-        interCircle.setFillColor(sf::Color::Red);
-        interCircle.setOrigin(interCircle.getRadius(), interCircle.getRadius());
-
-        for (int i = -50; i < 50; i++)
-        {
-            Intersection intersection = lineTracer.findIntersection(player.getPositionX(), player.getPositionY(), player.getAngle() - i);
-            interCircle.setPosition(intersection.getX(), intersection.getY());
-            window2d.draw(interCircle);
-        }
+        renderer3d.render();
 
         window2d.display();
+        window3d.display();
     }
 
     return 0;

@@ -8,6 +8,7 @@ class Renderer3D
 {
 	public:
 		Renderer3D(unsigned int width, sf::RenderWindow& window, unsigned int fov, unsigned int rayCount, Level& level, Player& player);
+		void render();
 	private:
 		sf::RenderWindow& window;
 		Player& player;
