@@ -120,3 +120,73 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 			return horizontalIntersection;
 	}
 }
+Intersection LineTracer::lineTrace(double startX, double startY, double tn, WallDirection direction)
+{
+	const double offsetX = fmod(startX, 1);
+	const double offsetY = fmod(startY, 1);
+
+	switch (direction)
+	{
+		case WallDirection::UP:
+			// Check for walls in the direction
+			for (unsigned int i = 0; i < this->MAX_TESTS; i++)
+			{
+				double intersectionX = startX + (offsetY + i) / tn;
+				double intersectionY = startY - offsetY - i - 0.001;
+
+				unsigned int tile = level.tileAt(intersectionX, intersectionY);
+
+				if (tile)
+					return Intersection(intersectionX, intersectionY, tile, WallDirection::UP, true);
+			}
+			// Nothing found, return empty intersection
+			return Intersection(0, 0, 0, WallDirection::UP, false);
+			break;
+		case WallDirection::DOWN:
+			// Check for walls in the direction
+			for (unsigned int i = 0; i < this->MAX_TESTS; i++)
+			{
+				double intersectionX = startX + (i + 1 - offsetY) / -tn;
+				double intersectionY = startY + i + 1 - offsetY + 0.001;
+
+				unsigned int tile = level.tileAt(intersectionX, intersectionY);
+
+				if (tile)
+					return Intersection(intersectionX, intersectionY, tile, WallDirection::DOWN, true);
+			}
+			// Nothing found, return empty intersection
+			return Intersection(0, 0, 0, WallDirection::DOWN, false);
+			break;
+		case WallDirection::RIGHT:
+			// Check for walls in the direction
+			for (unsigned int i = 0; i < this->MAX_TESTS; i++)
+			{
+				double intersectionX = startX + i + 1 - offsetX + 0.001;
+				double intersectionY = startY - (i + 1 - offsetX) * tn;
+
+				unsigned int tile = level.tileAt(intersectionX, intersectionY);
+
+				if (tile)
+					return Intersection(intersectionX, intersectionY, tile, WallDirection::RIGHT, true);
+
+			}
+			// Nothing found, return empty intersection
+			return Intersection(0, 0, 0, WallDirection::RIGHT, false);
+			break;
+		case WallDirection::LEFT:
+			// Check for walls in the direction
+			for (unsigned int i = 0; i < this->MAX_TESTS; i++)
+			{
+				double intersectionX = startX + i + 1 - offsetX + 0.001;
+				double intersectionY = startY - (i + 1 - offsetX) * tn;
+
+				unsigned int tile = level.tileAt(intersectionX, intersectionY);
+
+				if (tile)
+					return Intersection(intersectionX, intersectionY, tile, WallDirection::RIGHT, true);
+			}
+			// Nothing found, return empty intersection
+			return Intersection(0, 0, 0, WallDirection::LEFT, false);
+			break;
+	}
+}

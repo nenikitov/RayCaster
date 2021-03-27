@@ -10,4 +10,5 @@ class LineTracer
 	private:
 		Level& level;
 		const unsigned int MAX_TESTS = 18;
+		Intersection lineTrace(double startX, double startY, double tn, WallDirection direction);
 };
