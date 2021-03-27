@@ -1,4 +1,5 @@
 #include "Renderer3D.h"
+#include <algorithm>
 
 Renderer3D::Renderer3D(unsigned int width, sf::RenderWindow& window, unsigned int fov, unsigned int rayCount, Level& level, Player& player)
 	: window(window), lineTracer(LineTracer(level)), player(player), FOV(fov), RAY_COUNT(rayCount)
@@ -30,7 +31,27 @@ void Renderer3D::render()
 			const double HEIGHT = 0.5 / DISTANCE;
 			rectangle.setSize(sf::Vector2f(1.f, HEIGHT));
 			rectangle.setPosition(i, (1 - HEIGHT) / 2);
-			rectangle.setFillColor(sf::Color::Red);
+			sf::Color color;
+			switch (intersection.getTile()) 
+			{
+				case 1:
+					color = sf::Color::Red;
+					break;
+				case 2:
+					color = sf::Color::Cyan;
+					break;
+				case 3:
+					color = sf::Color::Yellow;
+					break;
+				case 4:
+					color = sf::Color::Green;
+					break;
+				case 5:
+					color = sf::Color::Blue;
+					break;
+			}
+			double intensity = ((intersection.getWallDirection() == WallDirection::UP || intersection.getWallDirection() == WallDirection::DOWN) ? 0.75 : 1.f) * std::fmin(1, HEIGHT);
+			rectangle.setFillColor(sf::Color(color.r * intensity, color.g * intensity, color.b * intensity));
 			window.draw(rectangle);
 		}
 	}
