@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Renderer2D.h"
 #include "LineTracer.h"
+#include "Renderer3D.h"
 
 int main()
 {
@@ -15,9 +16,12 @@ int main()
     Controller playerController;
     Level level = Level("./Levels/LevelTest.txt");
     Player player = Player(playerController, level);
+    const unsigned char FOV = 100;
 
     Renderer2D renderer2d = Renderer2D(window2d, level);
     LineTracer lineTracer = LineTracer(level);
+
+    Renderer3D renderer3d = Renderer3D(1280, window3d, 110, 320, level, player);
 
     while (window2d.isOpen())
     {
