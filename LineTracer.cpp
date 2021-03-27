@@ -15,85 +15,22 @@ Intersection LineTracer::findIntersection(double startX, double startY, double r
 
 	// Test vertical walls
 	Intersection verticalIntersection = Intersection(0, 0, 0, WallDirection::UP, false);
-	bool foundVertical = false;
 	// If facing up or down
 	if (sin(-rotation * M_PI / 180) >= 0)
-	{
-		// Test for UP walls
-		for (unsigned int i = 0; i < this->MAX_TESTS; i++)
-		{
-			if (foundVertical) break;
-
-			double intersectionX = startX + (offsetY + i) / tn;
-			double intersectionY = startY - offsetY - i - 0.001;
-
-			unsigned int tile = level.tileAt(intersectionX, intersectionY);
-
-			if (tile) {
-				verticalIntersection = Intersection(intersectionX, intersectionY, tile, WallDirection::UP, true);
-				foundVertical = true;
-			}
-		}
-	}
+		verticalIntersection = lineTrace(startX, startY, tn, WallDirection::UP);
 	else
-	{
-		// Test for DOWN walls
-		for (unsigned int i = 0; i < this->MAX_TESTS; i++)
-		{
-			if (foundVertical) break;
-
-			double intersectionX = startX + (i + 1 - offsetY) / -tn;
-			double intersectionY = startY + i + 1 - offsetY + 0.001;
-
-			unsigned int tile = level.tileAt(intersectionX, intersectionY);
-
-			if (tile) {
-				verticalIntersection = Intersection(intersectionX, intersectionY, tile, WallDirection::DOWN, true);
-				foundVertical = true;
-			}
-		}
-	}
+		verticalIntersection = lineTrace(startX, startY, tn, WallDirection::DOWN);
 
 	// Test for horizontal walls
 	Intersection horizontalIntersection = Intersection(0, 0, 0, WallDirection::RIGHT, false);
-	bool foundHorizontal = false;
 	// If facing right or left
 	if (cos(-rotation * M_PI / 180) >= 0)
-	{
-		// Test for RIGHT walls
-		for (unsigned int i = 0; i < this->MAX_TESTS; i++)
-		{
-			if (foundHorizontal) break;
-
-			double intersectionX = startX + i + 1 - offsetX + 0.001;
-			double intersectionY = startY - (i + 1 - offsetX) * tn;
-
-			unsigned int tile = level.tileAt(intersectionX, intersectionY);
-
-			if (tile) {
-				horizontalIntersection = Intersection(intersectionX, intersectionY, tile, WallDirection::RIGHT, true);
-				foundHorizontal = true;
-			}
-		}
-	}
+		horizontalIntersection = lineTrace(startX, startY, tn, WallDirection::RIGHT);
 	else 
-	{
-		// Test for LEFT walls
-		for (unsigned int i = 0; i < this->MAX_TESTS; i++)
-		{
-			if (foundHorizontal) break;
+		horizontalIntersection = lineTrace(startX, startY, tn, WallDirection::LEFT);
 
-			double intersectionX = startX - offsetX - i - 0.001;
-			double intersectionY = startY - (offsetX + i) * -tn;
-
-			unsigned int tile = level.tileAt(intersectionX, intersectionY);
-
-			if (tile) {
-				horizontalIntersection = Intersection(intersectionX, intersectionY, tile, WallDirection::LEFT, true);
-				foundHorizontal = true;
-			}
-		}
-	}
+	bool foundHorizontal = horizontalIntersection.getIntersects();
+	bool foundVertical = verticalIntersection.getIntersects();
 
 	// Return empty intersection if none exists
 	if (!foundHorizontal && !foundVertical)
@@ -177,13 +114,13 @@ Intersection LineTracer::lineTrace(double startX, double startY, double tn, Wall
 			// Check for walls in the direction
 			for (unsigned int i = 0; i < this->MAX_TESTS; i++)
 			{
-				double intersectionX = startX + i + 1 - offsetX + 0.001;
-				double intersectionY = startY - (i + 1 - offsetX) * tn;
+				double intersectionX = startX - offsetX - i - 0.001;
+				double intersectionY = startY - (offsetX + i) * -tn;
 
 				unsigned int tile = level.tileAt(intersectionX, intersectionY);
 
 				if (tile)
-					return Intersection(intersectionX, intersectionY, tile, WallDirection::RIGHT, true);
+					return Intersection(intersectionX, intersectionY, tile, WallDirection::LEFT, true);
 			}
 			// Nothing found, return empty intersection
 			return Intersection(0, 0, 0, WallDirection::LEFT, false);
