@@ -1,13 +1,4 @@
-﻿  LineTracer.cpp
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(74,53): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(74,38): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(89,53): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(89,38): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(104,53): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(104,38): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(120,53): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(120,38): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-  RayCaster.cpp
-  Generating Code...
-D:\Projects\VisualStudio\RayCaster\LineTracer.cpp(129): warning C4715: 'LineTracer::lineTrace': not all control paths return a value
+﻿  RayCaster.cpp
+D:\Projects\VisualStudio\RayCaster\RayCaster.cpp(72,75): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Projects\VisualStudio\RayCaster\RayCaster.cpp(72,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   RayCaster.vcxproj -> D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe

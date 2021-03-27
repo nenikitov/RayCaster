@@ -1,6 +1,6 @@
 #include "Renderer2D.h"
 
-Renderer2D::Renderer2D(sf::RenderWindow& window, Level& level) : window(window)
+Renderer2D::Renderer2D(sf::RenderWindow& window, Level& level, Player& player) : window(window), player(player)
 {
 	const unsigned int TILE_SIZE = this->TARGET_WINDOW_SIZE / level.getHeight();
 	const unsigned int NEW_W = TILE_SIZE * level.getWidth();
@@ -42,4 +42,6 @@ void Renderer2D::render()
 				window.draw(this->levelTiles.at(y).at(x));
 		}
 	}
+	window.draw(player.getCircleShape());
+	window.draw(player.getRectangleShape());
 }

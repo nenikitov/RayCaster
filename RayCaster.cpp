@@ -16,9 +16,8 @@ int main()
     Controller playerController;
     Level level = Level("./Levels/LevelTest.txt");
     Player player = Player(playerController, level);
-    const unsigned char FOV = 100;
 
-    Renderer2D renderer2d = Renderer2D(window2d, level);
+    Renderer2D renderer2d = Renderer2D(window2d, level, player);
     LineTracer lineTracer = LineTracer(level);
 
     Renderer3D renderer3d = Renderer3D(1280, window3d, 110, 320, level, player);
@@ -62,8 +61,6 @@ int main()
         
         // Update window 2d
         renderer2d.render();
-        window2d.draw(player.getCircleShape());
-        window2d.draw(player.getRectangleShape());
        
         sf::CircleShape interCircle(0.1f);
         interCircle.setFillColor(sf::Color::Red);

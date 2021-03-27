@@ -152,6 +152,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RayCaster.cpp" />
     <ClCompile Include="Renderer2D.cpp" />
+    <ClCompile Include="Renderer3D.cpp" />
     <ClCompile Include="WallDirection.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="LineTracer.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Renderer2D.h" />
+    <ClInclude Include="Renderer3D.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Levels\LevelTest.txt" />
