@@ -18,13 +18,13 @@ int main()
     Player player = Player(playerController, level);
 
     Renderer2D renderer2d = Renderer2D(window2d, level, player);
-    Renderer3D renderer3d = Renderer3D(1280, window3d, 110, 80, level, player);
+    Renderer3D renderer3d = Renderer3D(1280, window3d, 120, 320, level, player);
 
     while (window2d.isOpen())
     {
         // Check if window 3d was closed
         sf::Event event3d;
-        if (window3d.pollEvent(event3d))
+        while (window3d.pollEvent(event3d))
         {
             // If window is closed
             if (event3d.type == sf::Event::Closed)
@@ -32,6 +32,13 @@ int main()
                 window2d.close();
                 window3d.close();
             }
+            // If a key is pressed
+            if (event3d.type == sf::Event::KeyPressed)
+                playerController.keyEvent(event3d.key.code, true);
+            // If a key is released
+            if (event3d.type == sf::Event::KeyReleased)
+                playerController.keyEvent(event3d.key.code, false);
+
         }
 
         // Check if window 2d was closed
