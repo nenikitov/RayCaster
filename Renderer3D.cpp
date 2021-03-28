@@ -1,4 +1,5 @@
 #include "Renderer3D.h"
+#include <corecrt_math_defines.h>
 #include <algorithm>
 
 Renderer3D::Renderer3D(unsigned int width, sf::RenderWindow& window, unsigned int fov, unsigned int rayCount, Level& level, Player& player)
@@ -28,7 +29,7 @@ void Renderer3D::render()
 
 		if (intersection.getIntersects()) {
 			const double DISTANCE = sqrt(pow(player.getPositionX() - intersection.getX(), 2) + pow(player.getPositionY() - intersection.getY(), 2));
-			const double HEIGHT = 0.5 / DISTANCE;
+			const double HEIGHT = abs(0.5 / DISTANCE * sin(player.getAngle() + ANGLE + (ANGLE > 0) ? -M_PI_2 : M_PI_2));
 			rectangle.setSize(sf::Vector2f(1.f, HEIGHT));
 			rectangle.setPosition(i, (1 - HEIGHT) / 2);
 			sf::Color color;
