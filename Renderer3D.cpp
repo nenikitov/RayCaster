@@ -51,7 +51,7 @@ void Renderer3D::render()
 					color = sf::Color::Blue;
 					break;
 			}
-			double intensity = ((intersection.getWallDirection() == WallDirection::UP || intersection.getWallDirection() == WallDirection::DOWN) ? 0.75 : 1.f) * std::fmax(0.2, std::fmin(1, HEIGHT));
+			double intensity = ((intersection.getWallDirection() == WallDirection::UP || intersection.getWallDirection() == WallDirection::DOWN) ? 0.7 : 1.f) * std::fmax(0.1, std::fmin(1, 1 / DISTANCE));
 			rectangle.setFillColor(sf::Color(color.r * intensity, color.g * intensity, color.b * intensity));
 			window.draw(rectangle);
 		}
