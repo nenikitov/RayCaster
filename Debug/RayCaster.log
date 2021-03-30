@@ -10,14 +10,14 @@ D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(12,34): warning C4244: 'argume
               T=float
           ]
 D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(25,20): warning C4018: '<': signed/unsigned mismatch
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(33,40): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
+D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(34,40): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(34,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(34,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(55,87): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(55,66): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(55,45): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(35,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(35,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(56,87): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(56,66): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(56,45): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
   RayCaster.vcxproj -> D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe
