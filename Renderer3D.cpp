@@ -28,9 +28,11 @@ void Renderer3D::render()
 		intersection = lineTracer.findIntersection(player.getPositionX(), player.getPositionY(), player.getAngle() + ANGLE);
 
 		if (intersection.getIntersects()) {
-			const double REAL_DISTANCE = sqrt(pow(player.getPositionX() - intersection.getX(), 2) + pow(player.getPositionY() - intersection.getY(), 2));
-			const double PROJECTED_DISTANCE = REAL_DISTANCE * sin(M_PI_2 - abs(ANGLE) / 180 * M_PI);
-			const double HEIGHT = abs(0.5 / PROJECTED_DISTANCE * sin(player.getAngle() + ANGLE + (ANGLE > 0) ? -M_PI_2 : M_PI_2));
+			const double DELTA_X = intersection.getX() - player.getPositionX();
+			const double DELTA_Y = intersection.getY() - player.getPositionY();
+			const double PLAYER_ANGLE_RAD = player.getAngle() * M_PI / 180;
+			const double PROJECTED_DISTANCE = DELTA_X * cos(PLAYER_ANGLE_RAD) + DELTA_Y * sin(PLAYER_ANGLE_RAD);
+			const double HEIGHT = abs(0.5 / PROJECTED_DISTANCE);
 			rectangle.setSize(sf::Vector2f(1.f, HEIGHT));
 			rectangle.setPosition(i, (1 - HEIGHT) / 2);
 			sf::Color color;
@@ -52,7 +54,7 @@ void Renderer3D::render()
 					color = sf::Color::Blue;
 					break;
 			}
-			double intensity = ((intersection.getWallDirection() == WallDirection::UP || intersection.getWallDirection() == WallDirection::DOWN) ? 0.7 : 1.f) * std::fmax(0.1, std::fmin(1, 1 / REAL_DISTANCE));
+			double intensity = ((intersection.getWallDirection() == WallDirection::UP || intersection.getWallDirection() == WallDirection::DOWN) ? 0.7 : 1.f) * std::fmax(0.1, std::fmin(1, 1 / PROJECTED_DISTANCE));
 			rectangle.setFillColor(sf::Color(color.r * intensity, color.g * intensity, color.b * intensity));
 			window.draw(rectangle);
 		}
