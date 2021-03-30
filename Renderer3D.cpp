@@ -24,6 +24,11 @@ void Renderer3D::render()
 
 	for (int i = 0; i < this->RAY_COUNT; i++)
 	{
+		// Problem is here. The angles should not be evenly spaced. Well, they should, but not like I think
+		// I project the rays each FOV_STEP degrees
+		// It is not correct because I should space the angles so each of them corresponds with a pixel on a flat screen
+		// Like so, the angles in the middle are more spaced out than at the corners
+
 		const double ANGLE = -HALF_FOV + FOV_STEP * i;
 		intersection = lineTracer.findIntersection(player.getPositionX(), player.getPositionY(), player.getAngle() + ANGLE);
 
