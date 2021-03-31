@@ -18,7 +18,7 @@ int main()
     Player player = Player(playerController, level);
 
     Renderer2D renderer2d = Renderer2D(window2d, level, player);
-    Renderer3D renderer3d = Renderer3D(1600, window3d, 90, 80, level, player);
+    Renderer3D renderer3d = Renderer3D(1600, window3d, 90, 160, level, player);
 
     while (window2d.isOpen())
     {

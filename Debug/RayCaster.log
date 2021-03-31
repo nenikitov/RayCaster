@@ -1,23 +1,2 @@
-﻿  Renderer3D.cpp
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(11,43): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(12,34): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(26,20): warning C4018: '<': signed/unsigned mismatch
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(42,40): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(43,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(43,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(64,87): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(64,66): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
-D:\Projects\VisualStudio\RayCaster\Renderer3D.cpp(64,45): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
+﻿  RayCaster.cpp
   RayCaster.vcxproj -> D:\Projects\VisualStudio\RayCaster\Debug\RayCaster.exe
