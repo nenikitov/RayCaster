@@ -17,6 +17,7 @@ void Renderer3D::render()
 	window.clear();
 	
 	const double HALF_FOV = this->FOV / 2;
+	const double PERPEND_LENGTH = (this->RAY_COUNT / 2.f) / tan(HALF_FOV * M_PI / 180);
 	const double FOV_STEP = double(this->FOV) / this->RAY_COUNT;
 	Intersection intersection;
 	sf::RectangleShape rectangle = sf::RectangleShape(sf::Vector2f(1.f, 0.f));
@@ -28,8 +29,8 @@ void Renderer3D::render()
 		// I project the rays each FOV_STEP degrees
 		// It is not correct because I should space the angles so each of them corresponds with a pixel on a flat screen
 		// Like so, the angles in the middle are more spaced out than at the corners
-
-		const double ANGLE = -HALF_FOV + FOV_STEP * i;
+		const double RAY_OFFSET = -(this->RAY_COUNT / 2.f) + i;
+		const double ANGLE = atan(RAY_OFFSET / PERPEND_LENGTH) / M_PI * 180; // -HALF_FOV + FOV_STEP * i
 		intersection = lineTracer.findIntersection(player.getPositionX(), player.getPositionY(), player.getAngle() + ANGLE);
 
 		if (intersection.getIntersects()) {
